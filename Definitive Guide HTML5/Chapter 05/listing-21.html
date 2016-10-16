@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            var myData1 = {
+                name: "Adam",
+                weather: "sunny",
+            };
+
+            var myData2 = {
+                name: "Adam",
+                weather: "sunny",
+            };
+        
+            var myData3 = myData2;
+        
+            var test1 = myData1 == myData2;
+            var test2 = myData2 == myData3;
+            var test3 = myData1 === myData2;
+            var test4 = myData2 === myData3;
+            
+            document.writeln("Test 1: " + test1 + " Test 2: " + test2);
+            document.writeln("Test 3: " + test3 + " Test 4: " + test4);
+        </script>        
+    </body>
+</html>

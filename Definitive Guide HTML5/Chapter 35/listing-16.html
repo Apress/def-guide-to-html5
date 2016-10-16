@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black; margin: 4px}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140" preload="auto">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <div>
+            <button>Save</button>
+            <button>Restore</button>
+        </div>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            
+            var grad = ctx.createLinearGradient(500, 0, 500, 140);
+            grad.addColorStop(0, "red");
+            grad.addColorStop(0.5, "white");
+            grad.addColorStop(1, "black");
+
+            var colors = ["black", grad, "red", "green", "yellow", "black", "grey"];
+            
+            var cIndex = 0;
+            
+            ctx.fillStyle = colors[cIndex];
+            draw();
+            
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonPress;
+            }
+            
+            function handleButtonPress(e) {
+                switch (e.target.innerHTML) {
+                    case 'Save':
+                        ctx.save();
+                        cIndex = (cIndex + 1) % colors.length;
+                        ctx.fillStyle = colors[cIndex];
+                        draw();
+                        break;
+                    case 'Restore':
+                        cIndex = Math.max(0, cIndex -1);
+                        ctx.restore();
+                        draw();
+                        break;
+                }
+            }
+            function draw() {
+                ctx.fillRect(0, 0, 500, 140);
+            }
+        </script>
+    </body>
+</html>

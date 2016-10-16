@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">        
+            var myData = {
+                name: "Adam",
+                weather: "sunny",
+                printMessages: function() {
+                    document.writeln("Hello " + this.name + ". ");
+                    document.writeln("Today is " + this.weather + ".");        
+                }
+            };
+            
+            myData.printMessages();            
+            
+        </script>        
+    </body>
+</html>

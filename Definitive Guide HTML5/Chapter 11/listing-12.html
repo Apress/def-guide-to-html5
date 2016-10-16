@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            thead th, tfoot th { text-align:left; background:grey; color:white}
+            tbody th { text-align:right; background: lightgrey; color:grey}
+            [colspan], [rowspan] {font-weight:bold; border: medium solid black}
+            thead [colspan], tfoot [colspan] {text-align:center; }
+            caption {font-weight: bold; font-size: large; margin-bottom:5px}
+            #colgroup1 {background-color: red}
+            #colgroup2 {background-color: green; font-size:small}
+        </style>
+    </head>
+    <body>
+        <table>
+            <caption>Results of the 2011 Fruit Survey</caption>
+            <colgroup id="colgroup1" span="3"/>
+            <colgroup id="colgroup2" span="2"/>
+            <thead>
+                <tr>
+                    <th>Rank</th><th>Name</th><th>Color</th>
+                    <th colspan="2">Size & Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Favorite:</th><td>Apples</td><td>Green</td>
+                    <td>Medium</td><td>500</td>
+                </tr>
+                <tr>
+                    <th>2nd Favorite:</th><td>Oranges</td><td>Orange</td>
+                    <td>Large</td><td>450</td>
+                </tr>
+                <tr>
+                    <th>3rd Favorite:</th><td>Pomegranate</td>
+                    <td colspan="2" rowspan="2">
+                        Pomegranates and cherries can both come in a range of colors 
+                        and sizes. 
+                    </td>
+                    <td>203</td>
+                </tr>
+                <tr>
+                    <th rowspan="2">Joint 4th:</th>
+                    <td>Cherries</td>
+                    <td rowspan="2">75</td>
+                </tr>
+                <tr>
+                    <td>Pineapple</td>
+                    <td>Brown</td>
+                    <td>Very Large</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">&copy; 2011 Adam Freeman Fruit Data Enterprises</th>
+                </tr>                
+            </tfoot>
+        </table>
+    </body>
+</html>

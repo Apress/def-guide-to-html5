@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            table {border: thin solid black; border-collapse: collapse;}
+            th, td {padding: 3px 4px;}
+            body > * {float: left; margin: 2px;}
+        </style>
+    </head>
+    <body>
+        <video id="media" controls width="360" height="240" preload="metadata">
+            Video cannot be displayed
+        </video>
+        <table id="info" border="1">
+            <tr><th>Property</th><th>Value</th></tr>
+        </table>
+        <script>
+            var mediaElem = document.getElementById("media");
+            var tableElem = document.getElementById("info");
+
+            var mediaFiles = ["timessquare.webm", "timessquare.ogv", "timessquare.mp4"];
+            var mediaTypes = ["video/webm", "video/ogv", "video/mp4"];
+            
+            for (var i = 0; i < mediaTypes.length; i++) {
+                var playable = mediaElem.canPlayType(mediaTypes[i]);
+                if (!playable) {
+                    playable = "no";
+                }
+                
+                tableElem.innerHTML +=
+                    "<tr><td>" + mediaTypes[i] + "</td><td>" + playable + "</td></tr>";
+                    
+                if (playable == "probably") {
+                    mediaElem.src = mediaFiles[i];
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black; margin: 4px}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+
+            var grad = ctx.createLinearGradient(0, 0, 500, 140);
+            grad.addColorStop(0, "red");
+            grad.addColorStop(0.5, "white");
+            grad.addColorStop(1, "black");
+            
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 500, 140);            
+        </script>
+    </body>
+</html>

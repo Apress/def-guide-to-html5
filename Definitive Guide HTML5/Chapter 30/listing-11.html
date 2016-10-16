@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style type="text/css">
+            p {
+                background: gray;
+                color:white;
+                padding: 10px;
+                margin: 5px;
+                border: thin solid black
+            }
+            table { margin: 5px; border-collapse: collapse; }
+            th, td {padding: 4px;}
+        </style>
+    </head>
+    <body>        
+        <p id="block1">
+            There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands
+            of choices.
+        </p>
+        <table border="1">
+            <tr><th>Type:</th><td id="eType"></td></tr>
+            <tr><th>X:</th><td id="eX"></td></tr>
+            <tr><th>Y:</th><td id="eY"></td></tr>
+        </table>
+        
+        <script type="text/javascript">
+            var textblock = document.getElementById("block1");
+            var typeCell = document.getElementById("eType");
+            var xCell = document.getElementById("eX");
+            var yCell = document.getElementById("eY");
+
+            textblock.addEventListener("mouseover", handleMouseEvent, false);
+            textblock.addEventListener("mouseout", handleMouseEvent, false);
+            textblock.addEventListener("mousemove", handleMouseEvent, false);
+            
+            function handleMouseEvent(e) {
+                if (e.eventPhase == Event.AT_TARGET) {
+                    typeCell.innerHTML = e.type;
+                    xCell.innerHTML = e.clientX;
+                    yCell.innerHTML = e.clientY;
+                
+                    if (e.type == "mouseover") {
+                        e.target.style.background='black'; 
+                        e.target.style.color='white';
+                    } else {
+                        e.target.style.removeProperty('color');
+                        e.target.style.removeProperty('background');                    
+                    }
+                }
+            }     
+        </script>        
+    </body>
+</html>

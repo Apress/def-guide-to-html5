@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <p id="msg"></p>
+        <button id="banana">Banana</button>
+        <button id="apple">Apple</button>
+
+        <script type="text/javascript">
+
+            var sel = "No selection made";
+            if (window.location.search == "?banana") {
+                sel = "Selection: Banana";
+            } else if (window.location.search == "?apple") {
+                sel = "Selection: Apple";
+            }
+            document.getElementById("msg").innerHTML = sel;
+
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    document.getElementById("msg").innerHTML = e.target.innerHTML;
+                    window.history.pushState("", "", "?" + e.target.id);
+                };
+            }
+        </script>
+    </body>
+</html>

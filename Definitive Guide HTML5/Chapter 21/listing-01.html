@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            img {
+                top: 5px;
+                left:150px;
+                border: medium double black;
+            }
+        </style>
+    </head>
+    <body>       
+        <p>
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices. 
+        </p>
+        <p>
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.
+
+        </p>
+        <img id="banana" src="banana-small.png" alt="small banana"/>
+        <p>
+            When travelling in Asia, I was struck by how many different
+            kinds of banana were available - many of which had unique flavours and
+            which were only avaiable within a small region.
+        </p>
+        <p>        
+            <button>Static</button>
+            <button>Relative</button>
+            <button>Absolute</button>
+            <button>Fixed</button>
+        </p>
+        <script>
+            var buttons = document.getElementsByTagName("BUTTON");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    document.getElementById("banana").style.position = 
+                        e.target.innerHTML;
+                };
+            }
+        </script>
+    </body>
+</html>

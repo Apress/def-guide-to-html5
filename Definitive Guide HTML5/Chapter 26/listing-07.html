@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <script>
+            document.onreadystatechange = function() {
+                if (document.readyState == "interactive") {
+                    document.getElementById("pressme").onclick = function() {
+                        document.getElementById("results").innerHTML = "Button Pressed";
+                    }
+                }
+            }
+        </script>        
+    </head>
+    <body>
+        <button id="pressme">Press Me</button>
+        <pre id="results"></pre>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            h1, h2, h3 { background: grey; color: white; }
+            hgroup > h1 { margin-bottom: 0; margin-top: 0}
+            hgroup > h2 { background: grey; color: white; font-size: 1em;
+                        margin-top: 0px; margin-bottom: 2px}
+                        
+            body > header  *, body > footer * { background:transparent; color:black;}
+            body > section, body > section > section,
+            body > section > section > section {margin-left: 10px;}
+            
+            body > header, body > footer {
+                border: medium solid black; padding-left: 5px; margin: 10px 0 10px 0;
+            }
+            
+            body > nav { text-align: center; padding: 2px; border : dashed thin black;}
+            body > nav > a {padding: 2px; color: black}
+        </style>
+    </head>
+    <body>
+        <header>
+            <hgroup>
+                <h1>Things I like</h1>
+                <h2>by Adam Freeman</h2>
+            </hgroup>
+            <nav>
+                <h1>Contents</h1>
+                <ul>
+                    <li><a href="#fruitsilike">Fruits I Like</a></li>
+                    <ul>
+                        <li><a href="#morefruit">Additional Fruits</a></li>
+                    </ul>
+                    <li><a href="#activitiesilike">Activities I Like</a></li>
+                    <ul>
+                        <li><a href="#tritypes">Kinds of Triathlon</a></li>
+                        <li><a href="#mytri">The kind of triathlon I am
+                            aiming for</a></li>
+                    </ul>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <header>
+                <hgroup>
+                    <h1 id="fruitsilike">Fruits I Like</h1>
+                    <h2>How I Learned to Love Citrus</h2>
+                </hgroup>
+            </header>
+            I like apples and oranges.
+            <section>
+                <h1 id="morefruit">Additional fruits</h1>
+                I also like bananas, mangoes, cherries, apricots, plums,
+                peaches and grapes.
+                <section>            
+                    <h1>More information</h1>
+                    You can see other fruits I like <a href="fruitlist.html">here</a>.
+                </section>
+            </section>
+        </section>
+        
+        <section>
+            <header>
+                <h1 id="activitiesilike">Activities I like</h1>
+            </header>
+            <section>
+                <p>I like to swim, cycle and run. I am in training for my first
+                triathlon, but it is hard work.</p>
+                <h1 id="tritypes">Kinds of Triathlon</h1>
+                There are different kinds of triathlon - sprint, Olympic and so on.
+                <section>
+                    <h1 id="mytri">The kind of triathlon I am aiming for</h1>
+                    I am aiming for Olympic, which consists of the following:
+                    <ol>
+                        <li>1.5km swim</li>
+                        <li>40km cycle</li>
+                        <li>10km run</li>
+                    </ol>
+                </section>
+            </section>
+        </section>
+        <nav>
+            More Information:
+            <a href="http://fruit.org">Learn More About Fruit</a>
+            <a href="http://triathlon.org">Learn More About Triathlons</a>
+        </nav>
+        <footer id="mainFooter">
+            &#169;2011, Adam Freeman. <a href="http://apress.com">Visit Apress</a>
+        </footer>
+    </body>
+</html>

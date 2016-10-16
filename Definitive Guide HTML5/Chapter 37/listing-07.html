@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            body > * {float: left;}
+            #target {border: medium double black; margin:4px; height: 75px;
+                width: 200px; text-align: center; display: table;}
+            #target > p {display: table-cell; vertical-align: middle;}
+            table {margin: 4px; border-collapse: collapse;}
+            th, td {padding: 4px};
+        </style>
+    </head>
+    <body>
+        <div id="target">
+            <p id="msg">Drop Files Here</p>
+        </div>
+        <table id="data" border="1">
+        </table>
+    
+        <script>
+            var target = document.getElementById("target");
+                    
+            target.ondragenter = handleDrag;
+            target.ondragover = handleDrag;
+            
+            function handleDrag(e) {
+                e.preventDefault();
+            }
+            
+            target.ondrop = function(e) {
+                var files = e.dataTransfer.files;
+                var tableElem = document.getElementById("data");
+                tableElem.innerHTML = "<tr><th>Name</th><th>Type</th><th>Size</th></tr>";
+                for (var i = 0; i < files.length; i++) {
+                    var row = "<tr><td>" + files[i].name + "</td><td>" +
+                        files[i].type+ "</td><td>" +
+                        files[i].size + "</td></tr>";
+                    tableElem.innerHTML += row;
+                }
+                e.preventDefault();
+            }          
+        </script>
+    </body>
+</html>

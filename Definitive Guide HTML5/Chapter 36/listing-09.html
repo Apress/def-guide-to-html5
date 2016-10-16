@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black}
+            body > * {float:left;}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var canvasElem = document.getElementById("canvas");
+            var ctx = canvasElem.getContext("2d");
+
+            var startPoint = [50, 100];
+            var endPoint = [400, 100];
+            var cp1 = [250, 50];
+            
+            canvasElem.onmousemove = function(e) {
+                if (e.shiftKey) {
+                    cp1 = [e.clientX, e.clientY];
+                }
+                ctx.clearRect(0, 0, 500, 140);
+                draw();
+            }
+            
+            draw();
+
+            function draw() {
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "black";                  
+                ctx.beginPath();
+                ctx.moveTo(startPoint[0], startPoint[1]);
+                ctx.quadraticCurveTo(cp1[0], cp1[1], endPoint[0], endPoint[1]);
+                ctx.stroke();
+    
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = "red";            
+                var points = [startPoint, endPoint, cp1];
+                for (var i = 0; i < points.length; i++) {
+                    drawPoint(points[i]);    
+                }
+                drawLine(startPoint, cp1);
+                drawLine(endPoint, cp1);
+            }
+
+            function drawPoint(point) {
+                ctx.beginPath();
+
+                ctx.strokeRect(point[0] -2, point[1] -2, 4, 4);
+            }
+            
+            function drawLine(from, to) {
+                ctx.beginPath();
+                ctx.moveTo(from[0], from[1]);
+                ctx.lineTo(to[0], to[1]);
+                ctx.stroke();
+            }
+        </script>
+    </body>
+</html>

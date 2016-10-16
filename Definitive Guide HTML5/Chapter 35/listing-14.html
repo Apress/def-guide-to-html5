@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black; margin: 4px}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <img id="banana" hidden src="banana-small.png"/>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            var imageElem = document.getElementById("banana");
+            
+            var pattern = ctx.createPattern(imageElem, "repeat");
+
+            ctx.fillStyle = pattern;
+            ctx.fillRect(0, 0, 500, 140);
+        </script>
+    </body>
+</html>

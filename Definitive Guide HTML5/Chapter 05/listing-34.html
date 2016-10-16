@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        
+            var myData = {
+                name: "Adam",
+            };
+
+            document.writeln("Var: " + myData.weather);
+            document.writeln("Prop: " + ("weather" in myData));
+
+            myData.weather = "sunny";
+            document.writeln("Var: " + myData.weather);
+            document.writeln("Prop: " + ("weather" in myData));
+            
+            myData.weather = null;
+            document.writeln("Var: " + myData.weather);            
+            document.writeln("Prop: " + ("weather" in myData));
+
+        </script>        
+    </body>
+</html>

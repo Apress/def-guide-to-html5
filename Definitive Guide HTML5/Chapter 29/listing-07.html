@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style title="core styles">
+            p {
+                color: white;
+                border: medium double black;
+                background-color: gray;
+                padding-top: 5px;
+            }
+            table {border: thin solid black; border-collapse: collapse;
+                    margin: 5px; float: left;}
+            td {padding: 2px;}
+        </style>
+    </head>
+    <body>
+        <p id="block1">There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <div><button id="pressme">Press Me </button></div>        
+        <div id="placeholder"></div>
+        <script>
+            var placeholder = document.getElementById("placeholder");
+            displayStyles();
+            
+            document.getElementById("pressme").onclick = function() {
+                var styleDeclr = document.styleSheets[0].cssRules[0].style;
+                styleDeclr.setProperty("background-color", "lightgray");
+                styleDeclr.setProperty("padding-top", "20px");
+                styleDeclr.setProperty("color", "black");
+                displayStyles();
+            }
+            
+            function displayStyles() {
+                if (placeholder.hasChildNodes()) {
+                    var childCount = placeholder.childNodes.length;
+                    for (var i = 0; i < childCount; i++) {
+                        placeholder.removeChild(placeholder.firstChild);
+                    }
+                }
+
+                var newElem = document.createElement("table");
+                newElem.setAttribute("border", "1");                                    
+                
+                var style = document.styleSheets[0].cssRules[0].style;
+
+                addRow(newElem, "border", style.getPropertyValue("border"));
+                addRow(newElem, "color", style.getPropertyValue("color"));
+                addRow(newElem, "padding-top", style.getPropertyValue("padding-top"));
+                addRow(newElem, "background-color",
+                       style.getPropertyValue("background-color"));
+
+                placeholder.appendChild(newElem);                
+            }
+
+            function addRow(elem, header, value) {
+                elem.innerHTML += "<tr><td>" + header + ":</td><td>"
+                    +  value + "</td></tr>";
+            }
+        </script>
+    </body>
+</html>

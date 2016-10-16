@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <form method="post" action="http://titan:8080/form">
+            <fieldset>
+                <legend>Enter Your Details</legend>
+                <p><label for="name">Name: <input id="name" name="name"/></label></p>
+                <p><label for="name">City: <input id="city" name="city"/></label></p>
+            </fieldset>
+            <fieldset disabled>
+                <legend>Vote For Your Three Favorite Fruits</legend>
+                <p><label for="fave1">#1: <input id="fave1" name="fave1"/></label></p>
+                <p><label for="fave2">#2: <input id="fave2" name="fave2"/></label></p>
+                <p><label for="fave3">#3: <input id="fave3" name="fave3"/></label></p>
+            </fieldset>
+            <button>Submit Vote</button>
+        </form>
+    </body>
+</html>

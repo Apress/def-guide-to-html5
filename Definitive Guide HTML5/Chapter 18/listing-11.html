@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            :invalid {
+                outline: medium solid red;
+            }
+            :valid {
+                outline: medium solid green;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" action="http://titan:8080/form">
+            <p>
+                <label for="name">Name: <input required id="name" name="name"/></label>
+            </p>
+            <p>
+                <label for="name">City: <input required id="city" name="city"/></label>
+            </p>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

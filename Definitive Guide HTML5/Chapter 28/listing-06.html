@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            p {border: medium double black;}
+        </style>
+    </head>
+    <body>
+        <p id="textblock" class="fruit numbers" data-fruit="apple" data-sentiment="like">
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices.
+        </p>
+        <pre id="results"></pre>
+        <script>
+            var results = document.getElementById("results");
+            var elem = document.getElementById("textblock");
+
+            var attrs = elem.attributes;
+
+            for (var i = 0; i < attrs.length; i++) {
+                results.innerHTML += "Name: " + attrs[i].name + " Value: "
+                    + attrs[i].value + "\n";
+            }
+
+            attrs["data-fruit"].value = "banana";
+
+            results.innerHTML += "Value of data-fruit attr: "
+                + attrs["data-fruit"].value;
+        </script>
+    </body>
+</html>

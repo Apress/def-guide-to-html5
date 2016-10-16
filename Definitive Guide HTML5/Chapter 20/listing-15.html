@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            p.toggle {
+                float:left;
+                border: medium double black;
+                width: 40%;
+                margin: 2px;
+                padding: 2px;
+            }
+        </style>
+    </head>
+    <body>       
+        <p class="toggle">
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices. 
+        </p>
+        <p class="toggle">
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples. 
+        </p>
+        <p>
+            When travelling in Asia, I was struck by how many different
+            kinds of banana were available - many of which had unique flavours and
+            which were only avaiable within a small region.
+        </p>
+        <p>        
+            <button>Left</button>
+            <button>Right</button>
+            <button>None</button>
+        </p>
+        <script>
+            var buttons = document.getElementsByTagName("BUTTON");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    var elements = document.getElementsByClassName("toggle");
+                    for (var j = 0; j < elements.length; j++) {
+                        elements[j].style.cssFloat = e.target.innerHTML;
+                    }
+                };
+            }
+        </script>
+    </body>
+</html>

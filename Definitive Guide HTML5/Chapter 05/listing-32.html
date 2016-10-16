@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            try {
+                var myArray;
+                for (var i = 0; i < myArray.length; i++) {
+                    document.writeln("Index " + i + ": " + myArray[i]);                
+                }
+            } catch (e) {
+                document.writeln("Error: " + e);
+            } finally {
+                document.writeln("Statements here are always executed");
+            }
+        </script>        
+    </body>
+</html>

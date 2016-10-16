@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black}
+            body > * {float:left;}
+        </style>
+    </head>
+    <body>
+        <video id="vid" hidden src="timessquare.webm" preload="auto" 
+            width="360" height="240" autoplay></video>
+        <canvas id="canvas" width="360" height="240">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            var imageElement = document.getElementById("vid");
+            
+            var width = 100;
+            var height = 10;
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = "red";
+            
+            setInterval(function() {
+                ctx.drawImage(imageElement, 0, 0, 360, 240);
+                ctx.strokeRect(180 - (width/2),120 - (height/2), width, height);
+            }, 25);
+            
+            setInterval(function() {
+                width = (width + 1) % 200;
+                height = (height + 3) % 200;
+            }, 100);
+        
+        </script>
+    </body>
+</html>

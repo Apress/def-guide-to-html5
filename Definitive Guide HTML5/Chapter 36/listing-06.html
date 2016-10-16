@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black}
+            body > * {float:left;}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var canvasElem = document.getElementById("canvas");
+            var ctx = canvasElem.getContext("2d");
+        
+            var point1 = [100, 10];
+            var point2 = [200, 10];
+            var point3 = [200, 110];
+        
+            draw();
+        
+            canvasElem.onmousemove = function (e) {
+                if (e.ctrlKey) {
+                    point1 = [e.clientX, e.clientY];
+                } else if(e.shiftKey) {
+                    point2 = [e.clientX, e.clientY];    
+                } else {
+                    point3 = [e.clientX, e.clientY];
+                }
+                ctx.clearRect(0, 0, 540, 140);
+                draw();
+            }
+        
+            function draw() {
+        
+                ctx.fillStyle = "yellow";
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 4;
+            
+                ctx.beginPath();
+                ctx.moveTo(point1[0], point1[1]);
+                ctx.arcTo(point2[0], point2[1], point3[0], point3[1], 50);
+                ctx.stroke();
+                
+                drawPoint(point1[0], point1[1]);
+                drawPoint(point2[0], point2[1]);
+                drawPoint(point3[0], point3[1]);
+                
+                ctx.beginPath();
+                ctx.moveTo(point1[0], point1[1]);
+                ctx.lineTo(point2[0], point2[1]);
+                ctx.lineTo(point3[0], point3[1]);
+                ctx.stroke();
+            }
+        
+            function drawPoint(x, y) {
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = "red";
+                ctx.strokeRect(x -2, y-2, 4, 4);
+            }
+        </script>
+    </body>
+</html>

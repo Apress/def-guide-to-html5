@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            pre {border: medium double black;}
+        </style>
+    </head>
+    <body>
+        <pre id="results"></pre>
+        <img id="lemon" class="fruits" name="apple" src="lemon.png" alt="lemon"/>
+        <p>
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices. 
+        </p>
+        <img id="apple" class="fruits images" name="apple"  src="apple.png" alt="apple"/>
+        <p>
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.
+
+        </p>
+        <img id="banana" src="banana-small.png" alt="small banana"/>
+        <script>
+            var resultsElement = document.getElementById("results");             
+        
+            var pElems = document.getElementsByTagName("p");
+            resultsElement.innerHTML += "There are " + pElems.length + " p elements\n";
+            
+            var fruitsElems = document.getElementsByClassName("fruits");
+            resultsElement.innerHTML += "There are " + fruitsElems.length
+                + " elements in the fruits class\n";
+
+            var nameElems = document.getElementsByName("apple");
+            resultsElement.innerHTML += "There are " + nameElems.length
+                + " elements with the name 'apple'";
+        </script>
+    </body>
+</html>

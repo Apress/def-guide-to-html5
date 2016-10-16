@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <p id="block1"
+            style="color:white; border: thick solid black; background-color: gray">
+            There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <div><button id="pressme">Press Me </button></div>        
+        <div id="placeholder"></div>
+        <script>
+            var placeholder = document.getElementById("placeholder");
+            var targetElem = document.getElementById("block1");
+            displayStyle();
+            
+            document.getElementById("pressme").onclick = function() {
+                targetElem.style.cssText = "color:black";
+                displayStyle();
+            }
+                
+            function displayStyle() {
+                if (placeholder.hasChildNodes()) {
+                    placeholder.removeChild(placeholder.firstChild);
+                }
+                var newElem = document.createElement("table");
+                addRow(newElem, "Element CSS", targetElem.style.cssText);
+                placeholder.appendChild(newElem);
+            }
+            
+            function addRow(elem, header, value) {
+                elem.innerHTML += "<tr><td>" + header + ":</td><td>"
+                    +  value + "</td></tr>";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>    
+        <title>Example</title>
+        <script>
+            var toggleHidden = function() {
+                var elem = document.getElementById("toggle");
+                if (elem.hasAttribute("hidden")) {
+                    elem.removeAttribute("hidden");
+                } else {
+                    elem.setAttribute("hidden", "hidden");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="toggleHidden()">Toggle</button>
+        <table>
+            <tr><th>Name</th><th>City</th></tr>
+            <tr><td>Adam Freeman</td><td>London</td></tr>
+            <tr id="toggle" hidden><td>Joe Smith</td><td>New York</td></tr>
+            <tr><td>Anne Jones</td><td>Paris</td></tr>
+        </table>
+    </body>
+</html>

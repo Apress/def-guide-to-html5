@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <p id="textblock">There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <p>
+            <button id="insert">Insert Element</button>
+        </p>
+        <script>
+            document.getElementById("insert").onclick = function() {
+                var textBlock = document.getElementById("textblock");
+                textBlock.firstChild.splitText(10);
+                var newText = textBlock.childNodes[1].splitText(4).previousSibling;
+                textBlock.insertBefore(document.createElement("b"),
+                    newText).appendChild(newText);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            * { margin: 2px; padding: 4px; border-collapse: collapse;}
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <tr><th>Name:</th><td id="name"></td></tr>
+            <tr><th>Color:</th><td id="color"></td></tr>
+            <tr><th>Size:</th><td id="size"></td></tr>
+            <tr><th>State:</th><td id="state"></td></tr>
+            <tr><th>Event:</th><td id="event"></td></tr>
+        </table>
+        <button id="banana">Banana</button>
+        <button id="apple">Apple</button>
+
+        <script type="text/javascript">
+
+            if (window.history.state) {
+                displayState(window.history.state);
+                document.getElementById("state").innerHTML = "Yes";
+            } else {
+                document.getElementById("name").innerHTML = "No Selection";
+            }
+            
+            window.onpopstate = function(e) {
+                displayState(e.state);
+                document.getElementById("event").innerHTML = "Yes";
+            }
+
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    var stateObj;
+                    if (e.target.id == "banana") {
+                        stateObj = {
+                            name: "banana",
+                            color: "yellow",
+                            size: "large"
+                        }
+                    } else {
+                        stateObj = {
+                            name: "apple",
+                            color: "red",
+                            size: "medium"
+                        }
+                    }
+                    window.history.pushState(stateObj, "");
+                    displayState(stateObj);
+                };
+            }
+
+            function displayState(stateObj) {
+                document.getElementById("name").innerHTML = stateObj.name;
+                document.getElementById("color").innerHTML = stateObj.color;
+                document.getElementById("size").innerHTML = stateObj.size;
+            }
+        </script>
+    </body>
+</html>

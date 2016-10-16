@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            table { border-collapse: collapse; border: thin solid black;}
+            th, td { padding: 4px; }
+        </style>
+    </head>
+    <body>
+ 
+        <button id="alert">Alert</button>
+        <button id="confirm">Confirm</button>
+        <button id="prompt">Prompt</button>
+        <button id="modal">Modal Dialog</button>
+        
+        <script type="text/javascript">
+            
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0 ; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonPress;
+            }
+            
+            function handleButtonPress(e) {
+                if (e.target.id == "alert") {
+                    window.alert("This is an alert");
+                } else if (e.target.id == "confirm") {
+                    var confirmed 
+                       = window.confirm("This is a confirm - do you want to proceed?");
+                    alert("Confirmed? " + confirmed);
+                } else if (e.target.id == "prompt") {
+                    var response = window.prompt("Enter a word", "hello");
+                    alert("The word was " + response);
+                } else if (e.target.id == "modal") {
+                    window.showModalDialog("http://apress.com");
+                }
+            }
+        </script>
+    </body>
+</html>

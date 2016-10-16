@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            :in-range {
+                outline: medium solid green;
+            }
+            :out-of-range: {
+                outline: medium solid red;
+            }
+        </style>
+    </head>
+    <body>        
+        <form method="post" action="http://titan:8080/form">                       
+            <p>
+                <label for="price">
+                    $ per unit in your area:
+                    <input type="number" min="0" max="100"
+                          value="1" id="price" name="price"/>
+                </label>
+            </p>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>

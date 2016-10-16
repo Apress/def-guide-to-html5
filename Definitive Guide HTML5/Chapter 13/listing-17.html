@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>        
+        <form method="post" action="http://titan:8080/form" 
+            enctype="multipart/form-data">
+            <input type="hidden" name="recordID" value="1234"/>
+            <p>
+                <label for="name">
+                    Name: <input value="Adam" id="name" name="name"/>
+                </label>
+            </p>
+            <p>
+                <label for="password">
+                    Password: <input type="password" placeholder="Min 6 characters"
+                        id="password" name="password"/>
+                </label>
+            </p>
+            <p>
+                <label for="fave">
+                    Favorite Fruit: <input type="text" id="fave" name="fave"/>
+                </label>
+            </p>
+            <p>
+                <input type="file" name="filedata"/>
+            </p>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style title="core styles">
+            #block1 { color: white; border: thick solid black; background-color: gray;}
+            p {
+                border: medium double black;
+                background-color: lightgray;
+            }
+            table {border: thin solid black; border-collapse: collapse;
+                    margin: 5px; float: left;}
+            td {padding: 2px;}
+        </style>
+    </head>
+    <body>
+        <p id="block1">There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <p id="block2" style="border: medium dashed blue; color: red; padding: 2px">
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.
+        </p>
+        <div><button id="pressme">Press Me </button></div>        
+        <div id="placeholder"></div>
+        <script>
+            var placeholder = document.getElementById("placeholder");
+            displayStyles();
+            
+            document.getElementById("pressme").onclick = function() {
+                document.styleSheets[0].cssRules.item(1).style.paddingTop = "10px";
+                document.styleSheets[0].cssRules.item(1).style.paddingRight = "12px";
+                document.styleSheets[0].cssRules.item(1).style.paddingLeft = "5px";
+                document.styleSheets[0].cssRules.item(1).style.paddingBottom = "5px";                   
+                displayStyles();
+            }
+            
+            function displayStyles() {
+                if (placeholder.hasChildNodes()) {
+                    var childCount = placeholder.childNodes.length;
+                    for (var i = 0; i < childCount; i++) {
+                        placeholder.removeChild(placeholder.firstChild);
+                    }
+                }
+                displayStyleProperties(document.styleSheets[0].cssRules.item(1).style);
+                displayStyleProperties(document.getElementById("block2").style);
+            }
+            
+            function displayStyleProperties(style) {
+                var newElem = document.createElement("table");
+                newElem.setAttribute("border", "1");                    
+
+                addRow(newElem, "border", style.border);
+                addRow(newElem, "color", style.color);
+                addRow(newElem, "padding", style.padding);
+                addRow(newElem, "paddingTop", style.paddingTop);
+
+                placeholder.appendChild(newElem);                
+            }
+
+            function addRow(elem, header, value) {
+                elem.innerHTML += "<tr><td>" + header + ":</td><td>"
+                    +  value + "</td></tr>";
+            }
+        </script>
+    </body>
+</html>

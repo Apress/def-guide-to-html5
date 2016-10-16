@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black}
+            body > * {float:left;}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+       
+            ctx.fillStyle = "yellow";
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 4;
+       
+            ctx.beginPath();
+            ctx.moveTo(10, 10);
+            ctx.lineTo(110, 10);
+            ctx.lineTo(110, 120);
+            ctx.closePath();
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.moveTo(150, 10);
+            ctx.lineTo(200, 10);
+            ctx.lineTo(200, 120);
+            ctx.lineTo(190, 120);
+            
+            ctx.fill();
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(250, 10);
+            ctx.lineTo(250, 120);
+            ctx.stroke();
+        </script>
+    </body>
+</html>

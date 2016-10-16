@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body id="bod">
+        <table>
+            <tr><th>outerWidth:</th><td id="owidth"></td></tr>
+            <tr><th>outerHeight:</th><td id="oheight"></td></tr>
+        </table>
+
+        <script type="text/javascript">
+            document.getElementById("owidth").innerHTML = window.outerWidth;
+            document.getElementById("oheight").innerHTML
+                = document.defaultView.outerHeight;
+        </script>
+    </body>
+</html>

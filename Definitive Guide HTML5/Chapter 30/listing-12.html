@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style type="text/css">
+            p {
+                background: gray;
+                color:white;
+                padding: 10px;
+                margin: 5px;
+                border: thin solid black
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <p>
+                <label for="fave">Fruit: <input autofocus id="fave" name="fave"/></label>
+            </p>
+            <p>
+                <label for="name">Name: <input id="name" name="name"/></label>
+            </p>
+            <button type="submit">Submit Vote</button>
+            <button type="reset">Reset</button>
+        </form>
+
+        <script type="text/javascript">
+            
+            var inputElems = document.getElementsByTagName("input");
+            for (var i = 0; i < inputElems.length; i++) {
+                inputElems[i].onfocus = handleFocusEvent;
+                inputElems[i].onblur = handleFocusEvent;
+            }
+            
+            function handleFocusEvent(e) {
+                if (e.type == "focus") {
+                    e.target.style.backgroundColor = "lightgray";
+                    e.target.style.border = "thick double red";
+                } else {
+                    e.target.style.removeProperty("background-color");
+                    e.target.style.removeProperty("border");
+                }
+            }
+        </script>        
+    </body>
+</html>

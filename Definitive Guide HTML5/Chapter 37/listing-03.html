@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            #src > * {float:left;}
+            #target, #src > img {border: thin solid black; padding: 2px; margin:4px;}
+            #target {height: 81px; width: 81px; text-align: center; display: table;}
+            #target > p {display: table-cell; vertical-align: middle;}
+            #target > img {margin: 1px;}
+            img.dragged {background-color: lightgrey;}
+            
+        </style>
+    </head>
+    <body>
+        <div id="src">
+            <img draggable="true" id="banana" src="banana100.png" alt="banana"/>
+            <img draggable="true" id="apple" src="apple100.png" alt="apple"/>
+            <img draggable="true" id="cherries" src="cherries100.png" alt="cherry"/>
+            <div id="target">
+                <p id="msg">Drop Here</p>
+            </div>            
+        </div>            
+    
+        <script>
+            var src = document.getElementById("src");
+            var target = document.getElementById("target");
+            var msg = document.getElementById("msg");
+          
+            target.ondragenter = handleDrag;
+            target.ondragover = handleDrag;
+            
+            function handleDrag(e) {
+                e.preventDefault();
+            }
+          
+            src.ondragstart = function(e) {
+                e.target.classList.add("dragged");
+            }
+            
+            src.ondragend = function(e) {
+                e.target.classList.remove("dragged");
+                msg.innerHTML = "Drop Here";
+            }
+          
+            src.ondrag = function(e) {
+                msg.innerHTML = e.target.id;
+            }
+        </script>
+    </body>
+</html>

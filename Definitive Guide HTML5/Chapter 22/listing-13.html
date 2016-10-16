@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            @font-face {
+                font-family: 'MyFont';
+                font-style: normal;
+                font-weight: normal;
+                src: url('http://titan/listings/MyFont.woff');
+            }        
+            p {
+                padding: 5px;
+                border: medium double black;
+                background-color: lightgrey;
+                margin: 2px;
+                float: left;
+                font-size: medium;
+                font-family: MyFont, cursive;
+            }
+            #first {
+                font-weight: bold;
+            }
+            #second {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            There are lots of different kinds of fruit - there are over 500
+            varieties of <span id="first">banana</span> alone. By the time we add the
+            countless types of <span id="second">apples, oranges, and other
+            well-known fruit, we are faced with thousands of choices</span>.
+        </p>
+    </body>
+</html>

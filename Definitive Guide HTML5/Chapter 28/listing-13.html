@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            table {
+                border: solid thin black;
+                border-collapse: collapse;
+            }
+            td { padding: 4px 5px; }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+            <tbody id="fruitsBody">
+                <tr id="plumrow"><td>Plum</td><td>Purple</td></tr>
+            </tbody>
+        </table>
+        <pre id="results"></pre>
+        <script>
+
+            var elemByID = document.getElementById("plumrow");
+            var elemByPos
+                = document.getElementById("fruitsBody").getElementsByTagName("tr")[0];
+
+            if (elemByID.isSameNode(elemByPos)) {
+                document.getElementById("results").innerHTML = "Objects are the same";
+            }
+
+        </script>
+    </body>
+</html>

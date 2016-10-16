@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <video id="media" width="360" height="240" preload="auto">
+            <source src="timessquare.webm"/>
+            <source src="timessquare.ogv"/>
+            <source src="timessquare.mp4"/>
+            Video cannot be displayed
+        </video>
+        <div>
+            <button>Play</button>
+            <button>Pause</button>
+        </div>
+        <script>
+            var mediaElem = document.getElementById("media");
+            
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonPress;
+            }
+            
+            function handleButtonPress(e) {
+                switch (e.target.innerHTML) {
+                    case 'Play':
+                        mediaElem.play();
+                        break;
+                    case 'Pause':
+                        mediaElem.pause();
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

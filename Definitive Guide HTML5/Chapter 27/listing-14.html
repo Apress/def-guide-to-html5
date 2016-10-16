@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <p id="status">Ready</p>
+        <button id="send">Send Message</button>
+        <p>
+            <iframe name="nested" src="http://titan:81/otherdomain.html" width="90%"
+                    height="75px"></iframe>
+        </p>
+        <script>
+            document.getElementById("send").onclick = function() {
+                window["nested"].postMessage("I like apples", "http://titan:81");
+                document.getElementById("status").innerHTML = "Message Sent";
+            }
+        </script>
+    </body>
+</html>

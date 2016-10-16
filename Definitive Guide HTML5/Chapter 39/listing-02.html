@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Storage</title>
+        <style>
+            table {border-collapse: collapse;}
+            th, td {padding: 4px;}
+        </style>
+    </head>
+    <body>        
+        <table id="data" border="1">
+            <tr>
+                <th>key</th>
+                <th>oldValue</th>
+                <th>newValue</th>
+                <th>url</th>
+                <th>storageArea</th>
+            </tr>
+        </table>
+        <script>        
+            var tableElem = document.getElementById("data");
+            
+            window.onstorage = handleStorage;
+            
+            function handleStorage(e) {
+                var row = "<tr>";
+                row += "<td>" + e.key + "</td>";
+                row += "<td>" + e.oldValue + "</td>";
+                row += "<td>" + e.newValue + "</td>";
+                row += "<td>" + e.url + "</td>";
+                row += "<td>" + (e.storageArea == localStorage) + "</td></tr>";    
+                tableElem.innerHTML += row;
+            };
+        </script>
+    </body>
+</html>

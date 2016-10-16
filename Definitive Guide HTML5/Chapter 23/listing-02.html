@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            p {
+                padding: 5px;
+                border: medium double black;
+                background-color: lightgrey;
+                font-family: sans-serif;             
+            }
+            #banana {
+                font-size: large;
+                border: medium solid black;
+            }
+            #banana:hover {
+                font-size: x-large;
+                border: medium solid white;                
+                background-color: green;
+                color: white;
+                padding: 4px;
+                -webkit-transition-delay: 100ms;
+                -webkit-transition-property: background-color, color, padding,
+                    font-size, border;
+                -webkit-transition-duration: 500ms;                
+            }
+        </style>
+    </head>
+    <body>        
+        <p>
+            There are lots of different kinds of fruit - there are over 500
+            varieties of <span id="banana">banana</span> alone. By the time we add the
+            countless types of apples, oranges, and other
+            well-known fruit, we are faced with thousands of choices.
+        </p>
+    </body>
+</html>

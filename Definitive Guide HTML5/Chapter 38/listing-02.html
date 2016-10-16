@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            table {border-collapse: collapse;}
+            th, td {padding: 4px;}
+            th {text-align: right;}
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th>Longitude:</th><td id="longitude">-</td>
+                <th>Latitude:</th><td id="latitude">-</td>
+            </tr>
+            <tr>
+                <th>Altitude:</th><td id="altitude">-</td>
+                <th>Accuracy:</th><td id="accuracy">-</td>
+            </tr>
+            <tr>
+                <th>Altitude Accuracy:</th><td id="altitudeAccuracy">-</td>
+                <th>Heading:</th><td id="heading">-</td>
+            </tr>
+            <tr>
+                <th>Speed:</th><td id="speed">-</td>
+                <th>Time Stamp:</th><td id="timestamp">-</td>
+            </tr>
+            <tr>
+                <th>Error Code:</th><td id="errcode">-</td>
+                <th>Error Message:</th><td id="errmessage">-</td>
+            </tr>            
+        </table>
+            
+        <script>        
+            navigator.geolocation.getCurrentPosition(displayPosition, handleError);
+            
+            function displayPosition(pos) {
+                var properties = ["longitude", "latitude", "altitude", "accuracy",
+                                  "altitudeAccuracy", "heading", "speed"];
+                
+                for (var i = 0; i < properties.length; i++) {
+                    var value = pos.coords[properties[i]];
+                    document.getElementById(properties[i]).innerHTML = value;
+                }
+                document.getElementById("timestamp").innerHTML = pos.timestamp;
+            }
+            
+            function handleError(err) {
+                document.getElementById("errcode").innerHTML = err.code;
+                document.getElementById("errmessage").innerHTML = err.message;
+            }
+            
+        </script>
+    </body>
+</html>

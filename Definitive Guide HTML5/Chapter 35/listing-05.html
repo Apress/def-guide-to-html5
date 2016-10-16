@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black; margin: 4px}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="70">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            
+            ctx.lineWidth = 2;
+            ctx.strokeRect(10, 10, 50, 50);
+            ctx.lineWidth = 4;
+            ctx.strokeRect(70, 10, 50, 50);
+            ctx.lineWidth = 6;
+            ctx.strokeRect(130, 10, 50, 50);
+            ctx.strokeRect(190, 10, 50, 50);
+        </script>
+    </body>
+</html>

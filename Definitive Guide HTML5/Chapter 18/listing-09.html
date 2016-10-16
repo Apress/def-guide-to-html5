@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            :checked + span {
+                background-color: red;
+                color: white;
+                padding: 5px;
+                border: medium solid black;
+            }
+        </style>
+    </head>
+    <body>        
+        <form method="post" action="http://titan:8080/form">
+            <p>
+                <label for="apples">Do you like apples:</label>
+                <input type="checkbox" id="apples" name="apples"/>
+                <span>This will go red when checked</span>
+            </p>            
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>

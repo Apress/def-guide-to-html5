@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style type="text/css">
+            p {
+                background: gray;
+                color:white;
+                padding: 10px;
+                margin: 5px;
+                border: thin solid black
+            }
+            span {
+                background: white;
+                color: black;
+                padding: 2px;
+                cursor: default;
+            }
+        </style>
+    </head>
+    <body>        
+        <p id="block1">
+            There are lots of different kinds of fruit - there are over
+            500 varieties of <span id="banana">banana</span> alone. By the time we add
+            the countless types of apples, oranges, and other well-known fruit, we are
+            faced with thousands of choices.
+        </p>
+        <script type="text/javascript">
+
+            var banana = document.getElementById("banana");
+            var textblock = document.getElementById("block1");
+
+            banana.addEventListener("mouseover", handleMouseEvent);
+            banana.addEventListener("mouseout", handleMouseEvent);
+            textblock.addEventListener("mouseover", handleDescendantEvent, true);
+            textblock.addEventListener("mouseout", handleDescendantEvent, true);
+            
+            function handleDescendantEvent(e) {
+              if (e.type == "mouseover" && e.eventPhase == Event.CAPTURING_PHASE) {
+                    e.target.style.border = "thick solid red";
+                    e.currentTarget.style.border = "thick double black";
+              } else if (e.type == "mouseout" && e.eventPhase == Event.CAPTURING_PHASE) {
+                    e.target.style.removeProperty("border");
+                    e.currentTarget.style.removeProperty("border");
+              }
+            }
+        
+            function handleMouseEvent(e) {
+                if (e.type == "mouseover") {
+                    e.target.style.background='white'; 
+                    e.target.style.color='black';
+                } else {
+                    e.target.style.removeProperty('color');
+                    e.target.style.removeProperty('background');                    
+                }
+            }
+        </script>        
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>        
+        <form method="post" action="http://titan:8080/form">
+            <p>
+                <label for="name">
+                    Name: <input value="Adam" disabled id="name" name="name"/>
+                </label>
+            </p>
+            <p>
+                <label for="city">
+                    City: <input value="Boston" readonly id="city" name="city"/>
+                </label>
+            </p>            
+            <p>
+                <label for="fave">
+                    Fruit: <input id="fave" name="fave"/>
+                </label>
+            </p>
+            <button type="submit">Submit Vote</button>
+        </form>
+    </body>
+</html>

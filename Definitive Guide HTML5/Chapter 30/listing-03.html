@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style type="text/css">
+            p {
+                background: gray;
+                color:white;
+                padding: 10px;
+                margin: 5px;
+                border: thin solid black
+            }
+        </style>
+        <script type="text/javascript">
+            function handleMouseOver(elem) {
+                elem.style.background='white'; 
+                elem.style.color='black';
+            }
+            
+            function handleMouseOut(elem) {
+                elem.style.removeProperty('color');
+                elem.style.removeProperty('background');
+            }
+        </script>
+    </head>
+    <body>        
+        <p onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+            There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <p onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples. 
+        </p>
+    </body>
+</html>

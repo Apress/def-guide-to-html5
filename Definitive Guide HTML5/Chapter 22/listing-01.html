@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            #fruittext {
+                width: 400px;
+                margin: 5px;
+                padding: 5px;
+                border: medium double black;
+                background-color: lightgrey;
+            }            
+        </style>
+    </head>
+    <body>
+        <p id="fruittext">
+            There are lots of different kinds of fruit - there are over 500
+            varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with
+            thousands of choices.
+            One of the most interesting aspects of fruit is the
+            variety available in each country. I live near London, in an area which is
+            known for its apples.
+        </p>
+        <p>        
+            <button>Start</button>
+            <button>End</button>
+            <button>Left</button>
+            <button>Right</button>
+            <button>Justify</button>
+            <button>Center</button>
+        </p>
+        <script>
+            var buttons = document.getElementsByTagName("BUTTON");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    document.getElementById("fruittext").style.textAlign =
+                        e.target.innerHTML;
+                };
+            }
+        </script>
+    </body>
+</html>

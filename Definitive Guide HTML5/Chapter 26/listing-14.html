@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            pre {border: medium double black;}
+        </style>
+    </head>
+    <body>
+        <pre id="results"></pre>
+        <p id="tblock">
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of <span id="banana">banana</span> alone. By the time we add the countless
+            types of <span id="apple">apples</span>,
+            <span="orange">oranges</span="orange">, and other well-known fruit, we are
+            faced with thousands of choices. 
+        </p>
+        <img id="apple" class="fruits images" name="apple"  src="apple.png" alt="apple"/>
+        <img id="banana" src="banana-small.png" alt="small banana"/>       
+        <p>
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.
+        </p>
+        <p>
+            <button id="parent">Parent</button>
+            <button id="child">First Child</button>
+            <button id="prev">Prev Sibling</button>
+            <button id="next">Next Sibling</button>
+        </p>
+ 
+        <script>
+            var resultsElem = document.getElementById("results");
+            var element = document.body;
+            
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonClick;
+            }
+            
+            processNewElement(element);
+
+            function handleButtonClick(e) {
+                if (element.style) {
+                    element.style.backgroundColor = "white";
+                }
+                
+                if (e.target.id == "parent" && element != document.body) {
+                    element = element.parentNode;
+                } else if (e.target.id == "child" && element.hasChildNodes()) {
+                    element = element.firstChild;
+                } else if (e.target.id == "prev" && element.previousSibling) {
+                    element = element.previousSibling;
+                } else if (e.target.id == "next" && element.nextSibling) {
+                    element = element.nextSibling;
+                }
+                processNewElement(element);
+                if (element.style) {
+                    element.style.backgroundColor = "lightgrey";
+                }
+            }
+            
+            function processNewElement(elem) {
+                resultsElem.innerHTML = "Element type: " + elem + "\n";
+                resultsElem.innerHTML += "Element id: " + elem.id + "\n";
+                resultsElem.innerHTML += "Has child nodes: "
+                    + elem.hasChildNodes() + "\n";
+                if (elem.previousSibling) {
+                    resultsElem.innerHTML += ("Prev sibling is: "
+                         + elem.previousSibling + "\n");
+                } else {
+                    resultsElem.innerHTML += "No prev sibling\n";
+                }
+                if (elem.nextSibling) {
+                    resultsElem.innerHTML += "Next sibling is: "
+                        + elem.nextSibling + "\n";
+                } else {
+                    resultsElem.innerHTML += "No next sibling\n";
+                }
+            }
+        </script>
+    </body>
+</html>

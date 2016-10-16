@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            table {
+                border: solid thin black;
+                border-collapse: collapse;
+                margin: 10px;
+            }
+            td { padding: 4px 5px; }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <thead><th>Name</th><th>Color</th></thead>
+            <tbody id="fruitsBody">
+                <tr><td>Banana</td><td>Yellow</td></tr>
+                <tr><td>Apple</td><td>Red/Green</td></tr>
+            </tbody>
+        </table>
+
+        <button id="add">Add Element</button>
+        <button id="remove">Remove Element</button>
+
+        <script>
+            var tableBody = document.getElementById("fruitsBody");
+
+            document.getElementById("add").onclick = function() {
+              var row = tableBody.appendChild(document.createElement("tr"));
+              row.setAttribute("id", "newrow");
+              row.appendChild(document.createElement("td"))
+                .appendChild(document.createTextNode("Plum"));
+              row.appendChild(document.createElement("td"))
+                .appendChild(document.createTextNode("Purple"));
+            };
+
+            document.getElementById("remove").onclick = function() {
+                var row = document.getElementById("newrow");
+                row.parentNode.removeChild(row);
+            }
+        </script>
+    </body>
+</html>

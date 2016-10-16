@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            table {border: thin solid black; border-collapse: collapse;}
+            th, td {padding: 3px 4px;}
+            body > * {float: left; margin: 2px;}
+        </style>
+    </head>
+    <body>
+        <video id="media" controls width="360" height="240" preload="metadata">
+            <source src="timessquare.webm"/>
+            <source src="timessquare.ogv"/>
+            <source src="timessquare.mp4"/>
+            Video cannot be displayed
+        </video>
+        <table id="info" border="1">
+            <tr><th>Property</th><th>Value</th></tr>
+        </table>
+        <script>
+            var mediaElem = document.getElementById("media");
+            var tableElem = document.getElementById("info");
+            
+            var propertyNames = ["autoplay", "currentSrc", "controls", "loop", "muted",
+                                 "preload", "src", "volume"];
+            
+            for (var i = 0; i < propertyNames.length; i++) {
+                tableElem.innerHTML +=
+                    "<tr><td>" + propertyNames[i] + "</td><td>" +
+                    mediaElem[propertyNames[i]] + "</td></tr>";
+            }
+        </script>
+    </body>
+</html>

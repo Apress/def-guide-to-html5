@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <button id="back">Back</button>
+        <button id="forward">Forward</button>
+        <button id="go">Go</button>
+
+        <script type="text/javascript">
+            
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0 ; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonPress;
+            }
+
+            function handleButtonPress(e) {
+                if (e.target.id == "back") {
+                    window.history.back();
+                } else if (e.target.id == "forward") {
+                    window.history.forward();
+                } else if (e.target.id == "go") {
+                    window.history.go("http://www.apress.com");
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            table {
+                border: solid thin black;
+                border-collapse: collapse;
+                margin: 10px;
+                float: left;
+            }
+            td { padding: 4px 5px; }
+            p { clear:left; }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+            <tbody>
+                <tr><td>Banana</td><td>Yellow</td></tr>
+                <tr id="apple"><td>Apple</td><td>Red/Green</td></tr>
+            </tbody>
+        </table>
+
+        <table border="1">
+            <thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+            <tbody id="fruitsBody">
+                <tr><td>Plum</td><td>Purple</td></tr>
+                <tr id="targetrow"><td colspan="2">This is the placeholder</td></tr>
+            </tbody>
+        </table>
+
+        <p>
+            <button id="move">Move Row</button>
+        </p>
+        <script>
+            document.getElementById("move").onclick = function() {
+                var source = document.getElementById("apple");
+                var target = document.getElementById("targetrow");
+                target.innerHTML = source.innerHTML;
+                source.outerHTML = '<tr id="targetrow"><td colspan="2">' +
+                    'This is the placeholder</td>';
+            };
+        </script>
+    </body>
+</html>

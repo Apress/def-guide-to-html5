@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            #fruittext {
+                padding: 5px;
+                border: medium double black;
+                background-color: lightgrey;
+                font-family: sans-serif;             
+            }
+
+            #banana {
+                -webkit-animation-duration: 2500ms;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-direction: alternate;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-name: 'GrowShrink';        
+            }
+
+            @-webkit-keyframes GrowShrink {
+                from {
+                    font-size: large;
+                    border: medium solid black;
+                }
+                to {
+                    font-size: x-large;
+                    border: medium solid white;                
+                    background-color: green;
+                    color: white;
+                    padding: 4px;                    
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <p id="fruittext">
+            There are lots of different kinds of fruit - there are over 500
+            varieties of <span id="banana">banana</span> alone. By the time we add the
+            countless types of apples, oranges, and other
+            well-known fruit, we are faced with thousands of choices.
+        </p>
+        <p>        
+            <button>Running</button>
+            <button>Paused</button>
+        </p>
+        <script>
+            var buttons = document.getElementsByTagName("BUTTON");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    document.getElementById("banana").style.webkitAnimationPlayState = 
+                        e.target.innerHTML;
+                };
+            }
+        </script>
+    </body>
+</html>

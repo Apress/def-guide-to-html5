@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            pre {border: medium double black;}
+        </style>
+    </head>
+    <body>
+        <pre id="results"></pre>
+        <p id="tblock">
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of <span id="banana">banana</span> alone. By the time we add the countless
+            types of <span id="apple">apples</span>,
+            <span="orange">oranges</span="orange">, and other well-known fruit, we are
+            faced with thousands of choices. 
+        </p>
+        <script>
+            var resultsElement = document.getElementById("results");
+            
+            var elems = document.getElementById("tblock").getElementsByTagName("span");
+            resultsElement.innerHTML += "There are " + elems.length + " span elements\n";
+                            
+            var elems2 = document.getElementById("tblock").querySelectorAll("span");
+            resultsElement.innerHTML += "There are " + elems2.length
+                + " span elements (Mix)\n";    
+            
+            var selElems = document.querySelectorAll("#tblock > span");
+            resultsElement.innerHTML += "There are " + selElems.length
+                + " span elements (CSS)\n";            
+            
+        </script>
+    </body>
+</html>

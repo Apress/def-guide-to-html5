@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+    </head>
+    <body>
+        <p>
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices. 
+        </p>
+        <button id="pressme">Press Me</button>
+        <p>
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.
+
+        </p>
+        <img id="banana" src="banana-small.png" alt="small banana"/>
+        <script>        
+            document.getElementById("pressme").onclick = function() {
+                document.location.hash = "banana";
+            }
+        </script>
+    </body>
+</html>

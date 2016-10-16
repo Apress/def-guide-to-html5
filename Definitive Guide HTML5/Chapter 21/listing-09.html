@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<style>
+    p {
+        width: 150px;
+        max-width: 250px;
+        border: medium double black;
+        background-color: lightgrey;
+        margin: 2px;
+    }
+    #container {
+        display: -webkit-box;
+        -webkit-box-direction: reverse;
+        -webkit-box-align: end;
+        -webkit-box-pack: justify;
+    }
+    #first {
+        -webkit-box-flex: 3;
+    }        
+    #second {
+       -webkit-box-flex: 1;
+    }
+</style>
+    </head>
+    <body>
+        <div id="container">
+            <p id="first">
+                There are lots of different kinds of fruit - there are over 500 varieties
+                of banana alone. By the time we add the countless types of apples,
+                oranges, and other well-known fruit, we are faced with thousands
+                of choices.
+            </p>
+            <p id="second">
+                One of the most interesting aspects of fruit is the variety available in
+                each country. I live near London, in an area which is known for
+                its apples. 
+            </p>
+            <p id="third">
+                When travelling in Asia, I was struck by how many different kinds of
+                banana were available - many of which had unique flavours and which
+                were only avaiable within a small region.   
+            </p>
+        </div>
+    </body>
+</html>

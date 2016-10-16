@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            p {
+                border: medium double black;
+            }
+            p.newclass {
+                background-color: grey;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="textblock" class="fruit numbers">
+            There are lots of different kinds of fruit - there are over 500 varieties
+            of banana alone. By the time we add the countless types of apples, oranges,
+            and other well-known fruit, we are faced with thousands of choices.
+        </p>
+        <button id="pressme">Press Me</button>
+        <script>
+            document.getElementById("pressme").onclick = function(e) {
+                document.getElementById("textblock").className += " newclass";
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black}
+            body > * {float:left;}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="120">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            
+            ctx.fillStyle = "lightgrey";
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 3;
+            
+            ctx.font = "100px sans-serif";
+            ctx.fillText("Hello", 10, 100);
+            ctx.strokeText("Hello", 10, 100);       
+            
+            ctx.fillStyle = "red";
+            ctx.globalAlpha = 0.5;
+            ctx.fillRect(100, 10, 150, 100);
+        </script>
+    </body>
+</html>

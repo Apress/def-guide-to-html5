@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style type="text/css">
+            a {
+                background: gray;
+                color:white;
+                padding: 10px;
+                border: thin solid black
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            <a href="http://apress.com">Visit Apress</a>
+            <a href="http://w3c.org">Visit W3C</a>
+        </p>
+        
+        <script type="text/javascript">
+                
+            function handleClick(e) {
+                if (!confirm("Do you want to navigate to " + e.target.href + " ?")) {
+                    e.preventDefault();
+                }
+            }
+                        
+            var elems = document.querySelectorAll("a");
+            for (var i = 0; i < elems.length; i++) {
+                elems[i].addEventListener("click", handleClick, false);
+            }
+                        
+        </script>
+    </body>
+</html>

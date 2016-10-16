@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            table { border-collapse: collapse; border: thin solid black;}
+            th, td { padding: 4px; }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th>outerWidth:</th><td id="ow"></td><th>outerHeight:</th><td id="oh">
+            </tr>
+            <tr>
+                <th>innerWidth:</th><td id="iw"></td><th>innerHeight:</th><td id="ih">
+            </tr>
+           <tr>
+                <th>screen.width:</th><td id="sw"></td>
+                <th>screen.height:</th><td id="sh">
+            </tr>
+        </table>
+        
+        <script type="text/javascript">
+            document.getElementById("ow").innerHTML = window.outerWidth;
+            document.getElementById("oh").innerHTML = window.outerHeight;
+            document.getElementById("iw").innerHTML = window.innerHeight;
+            document.getElementById("ih").innerHTML = window.innerHeight;
+            document.getElementById("sw").innerHTML = window.screen.width;
+            document.getElementById("sh").innerHTML = window.screen.height;
+        </script>        
+    </body>
+</html>

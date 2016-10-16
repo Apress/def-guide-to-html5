@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Other Page</title>
+    </head>
+    <body>
+        <p>The X-coordinate is <b><span id="xco">??</span></b></p>
+        <p>The Y-coordinate is <b><span id="yco">??</span></b></p>
+        <script>
+            var coords = window.location.href.split('?')[1].split(',');
+            document.getElementById('xco').innerHTML = coords[0];
+            document.getElementById('yco').innerHTML = coords[1];            
+        </script>
+    </body>
+</html>

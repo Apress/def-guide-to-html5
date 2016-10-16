@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            h1, h2, h3, article > footer { background: grey; color: white; }
+            hgroup > h1 { margin-bottom: 0; margin-top: 0}
+            hgroup > h2 { background: grey; color: white; font-size: 1em;
+                        margin-top: 0px; margin-bottom: 2px}
+            body > header  *, body > footer * { background:transparent; color:black;}
+            body > article > section,
+            body > article > section > section {margin-left: 10px;}
+            body > header {
+                border: medium solid black; padding-left: 5px; margin: 10px 0 10px 0;
+            }
+            article {border: thin black solid; padding: 10px; margin-bottom: 5px}            
+            details {border: solid thin black; padding: 5px}
+            details > summary { font-weight: bold}
+        </style>
+    </head>
+    <body>
+        <header>
+            <hgroup>
+                <h1>Things I like</h1>
+                <h2>by Adam Freeman</h2>
+            </hgroup>
+        </header>
+        <article>
+            <header>
+                <hgroup>
+                    <h1 id="activitiesilike">Activities I like</h1>
+                    <h2>It hurts, but I keep doing it</h2>
+                </hgroup>
+            </header>
+            <section>
+                <p>I like to swim, cycle and run. I am in training for my first
+                triathlon, but it is hard work.</p>
+                <details>
+                    <summary>Kinds of Triathlon</summary>
+                    There are different kinds of triathlon - sprint, Olympic and so on.
+                    I am aiming for Olympic, which consists of the following:
+                    <ol>
+                        <li>1.5km swim</li>
+                        <li>40km cycle</li>
+                        <li>10km run</li>
+                    </ol>
+                </details>
+            </section>
+        </article>
+    </body>
+</html>

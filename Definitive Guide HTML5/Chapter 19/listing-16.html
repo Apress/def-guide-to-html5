@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>        
+            p {
+                width: 30%;
+                padding: 5px;
+                border: medium double black;
+                background-color: lightgray;
+                margin: 2px;
+                float: left;
+            }
+            #fruittext {
+                outline: thick solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            There are lots of different kinds of fruit - there are over 500
+            varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with
+            thousands of choices.
+        </p>
+        <p id="fruittext">
+            There are lots of different kinds of fruit - there are over 500
+            varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with
+            thousands of choices.
+        </p>
+        <p>
+            There are lots of different kinds of fruit - there are over 500
+            varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with
+            thousands of choices.
+        </p>
+        <button>Outline Off</button>
+        <button>Outline On</button>
+        <script>
+            var buttons = document.getElementsByTagName("BUTTON");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    var elem = document.getElementById("fruittext");
+                    if (e.target.innerHTML == "Outline Off") {
+                        elem.style.outline = "none";
+                    } else {
+                        elem.style.outlineColor = "red";
+                        elem.style.outlineStyle = "solid";
+                        elem.style.outlineWidth = "thick";
+                    }
+                };
+            }
+        </script>
+    </body>
+</html>

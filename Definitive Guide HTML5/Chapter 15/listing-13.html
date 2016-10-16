@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <meter id="mymeter" value="90"
+               min="10" max="100" low="40" high="80" optimum="60"></meter>
+        
+        <p>
+            <button type="button" value="30">30</button>
+            <button type="button" value="60">60</button>
+            <button type="button" value="90">90</button>
+        </p>
+        
+        <script>
+            var buttons = document.getElementsByTagName('BUTTON');
+            var meter = document.getElementById('mymeter');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function(e) {
+                    meter.value = e.target.value;
+                };
+            }
+        </script>
+    </body>
+</html>

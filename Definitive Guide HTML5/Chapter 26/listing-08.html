@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+    </head>
+    <body>
+        <script>
+            
+            var features = ["Core", "HTML", "CSS", "Selectors-API"];
+            var levels = ["1.0", "2.0", "3.0"];
+            
+            document.writeln("<pre>");            
+            for (var i = 0; i < features.length; i++) {
+                document.writeln("Checking for feature: " + features[i]);
+                for (var j = 0; j < levels.length; j++) {
+                    document.write(features[i] + " Level " + levels[j] + ": ");
+                    document.writeln(document.implementation.hasFeature(features[i],
+                        levels[j]));
+                }
+            }
+            document.write("</pre>")
+        </script>
+    </body>
+</html>

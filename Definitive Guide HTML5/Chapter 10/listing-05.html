@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            h1, h2, h3 { background: grey; color: white; }
+            hgroup > h1 { margin-bottom: 0; margin-top: 0}
+            hgroup > h2 { background: grey; color: white; font-size: 1em;
+                        margin-top: 0px; margin-bottom: 2px}
+                        
+            body > header  *, footer > * { background:transparent; color:black;}
+            body > section, body > section > section,
+            body > section > section > section {margin-left: 10px;}
+            
+            body > header, body > footer {
+                border: medium solid black; padding-left: 5px; margin: 10px 0 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <hgroup>
+                <h1>Things I like</h1>
+                <h2>by Adam Freeman</h2>
+            </hgroup>
+        </header>
+        <section>
+            <header>
+                <hgroup>
+                    <h1>Fruits I Like</h1>
+                    <h2>How I Learned to Love Citrus</h2>
+                </hgroup>
+            </header>
+            I like apples and oranges.
+            <section>
+                <h1>Additional fruits</h1>
+                I also like bananas, mangoes, cherries, apricots, plums,
+                peaches and grapes.
+                <section>            
+                    <h1>More information</h1>
+                    You can see other fruits I like <a href="fruitlist.html">here</a>.
+                </section>
+            </section>
+        </section>
+        
+        <section>
+            <header>
+                <h1>Activities I like</h1>
+            </header>
+            <section>
+                <p>I like to swim, cycle and run. I am in training for my first
+                triathlon, but it is hard work.</p>
+                <h1>Kinds of Triathlon</h1>
+                There are different kinds of triathlon - sprint, Olympic and so on.
+                <section>
+                    <h1>The kind of triathlon I am aiming for</h1>
+                    I am aiming for Olympic, which consists of the following:
+                    <ol>
+                        <li>1.5km swim</li>
+                        <li>40km cycle</li>
+                        <li>10km run</li>
+                    </ol>
+                </section>
+            </section>
+        </section>
+        <footer id="mainFooter">
+            &#169;2011, Adam Freeman. <a href="http://apress.com">Visit Apress</a>
+        </footer>
+    </body>
+</html>

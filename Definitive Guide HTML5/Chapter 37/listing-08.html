@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            .table {display:table;}
+            .row {display:table-row;}
+            .cell {display: table-cell; padding: 5px;}
+            .label {text-align: right;}
+            #target {border: medium double black; margin:4px; height: 50px;
+                width: 200px; text-align: center; display: table;}
+            #target > p {display: table-cell; vertical-align: middle;}
+        </style>
+    </head>
+    <body>
+        <form id="fruitform" method="post" action="http://titan:8080/form">
+            <div class="table">
+                <div class="row">
+                    <div class="cell label">Bananas:</div>
+                    <div class="cell"><input name="bananas" value="2"/></div>
+                </div>
+                <div class="row">
+                    <div class="cell label">Apples:</div>
+                    <div class="cell"><input name="apples" value="5"/></div>
+                </div>
+                <div class="row">
+                    <div class="cell label">Cherries:</div>
+                    <div class="cell"><input name="cherries" value="20"/></div>
+                </div>
+                <div class="row">
+                    <div class="cell label">File:</div>
+                    <div class="cell"><input type="file" name="file"/></div>
+                </div>
+                <div class="row">
+                    <div class="cell label">Total:</div>
+                    <div id="results" class="cell">0 items</div>
+                </div>                
+            </div>
+            <div id="target">
+                <p id="msg">Drop Files Here</p>
+            </div>            
+            <button id="submit" type="submit">Submit Form</button>
+        </form>
+        <script>
+            var target = document.getElementById("target");     
+            var httpRequest;
+            var fileList;
+                         
+            document.getElementById("submit").onclick = handleButtonPress;                    
+            target.ondragenter = handleDrag;
+            target.ondragover = handleDrag;
+            
+            function handleDrag(e) {
+                e.preventDefault();
+            }
+            
+            target.ondrop = function(e) {
+                fileList = e.dataTransfer.files;
+                e.preventDefault();
+            }          
+                         
+            function handleButtonPress(e) {
+                e.preventDefault();
+                 
+                var form = document.getElementById("fruitform");
+                var formData = new FormData(form);
+                 
+                if (fileList || true) {
+                    for (var i = 0; i < fileList.length; i++) {
+                        formData.append("file" + i, fileList[i]);
+                    }
+                }  
+                 
+                httpRequest = new XMLHttpRequest();
+                httpRequest.onreadystatechange = handleResponse;
+                httpRequest.open("POST", form.action);
+                httpRequest.send(formData);
+            }
+                         
+            function handleResponse() {
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                    var data = JSON.parse(httpRequest.responseText);
+                    document.getElementById("results").innerHTML = "You ordered "
+                        + data.total + " items";
+                }
+            }
+         </script>
+    </body>
+</html>

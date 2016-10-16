@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <head>    
+        <title>Example</title>
+    </head>
+    <body>
+        <a class="class1 class2" href="http://apress.com">Apress web site</a>
+        <p/>
+        <a class="class2 otherclass" href="http://w3c.org">W3C web site</a>
+        <script type="text/javascript">
+            var elems = document.getElementsByClassName("otherclass");
+            for (i = 0; i < elems.length; i++) {
+                var x = elems[i];
+                x.style.border = "thin solid black";
+                x.style.backgroundColor = "white";
+                x.style.color = "black";
+            }
+        </script>
+    </body>
+</html>

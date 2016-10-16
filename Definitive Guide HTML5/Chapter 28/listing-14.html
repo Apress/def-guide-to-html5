@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            table {
+                border: solid thin black;
+                border-collapse: collapse;
+                margin: 2px 0px;
+            }
+            td { padding: 4px 5px; }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+            <tbody>
+                <tr class="plumrow"><td>Plum</td><td>Purple</td></tr>
+            </tbody>
+        </table>
+
+        <table border="1">
+            <thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+            <tbody>
+                <tr class="plumrow"><td>Plum</td><td>Purple</td></tr>
+            </tbody>
+        </table>
+
+        <pre id="results"></pre>
+        <script>
+            var elems = document.getElementsByClassName("plumrow");
+            
+            if (elems[0].isEqualNode(elems[1])) {
+                document.getElementById("results").innerHTML = "Elements are equal";
+            } else {
+                document.getElementById("results").innerHTML = "Elements are NOT equal";
+            }
+        </script>
+    </body>
+</html>

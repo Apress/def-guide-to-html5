@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black; margin: 4px}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="140">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            
+            var offset = 10;
+            var size = 50;
+            var count = 5;
+            
+            for (var i = 0; i < count; i++) {
+                ctx.fillRect(i * (offset + size) + offset, offset, size, size);
+                ctx.strokeRect(i * (offset + size) + offset, (2 * offset) + size,
+                               size, size);
+                ctx.clearRect(i * (offset + size) + offset, offset + 5, size, size -10);
+            }
+        </script>
+    </body>
+</html>

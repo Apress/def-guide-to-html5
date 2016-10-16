@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            thead th, tfoot th { text-align:left; background:grey; color:white}
+            tbody th { text-align:right; background: lightgrey; color:grey}
+            thead [colspan], tfoot [colspan] {text-align:center; }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th id="rank">Rank</th>
+                    <th id="name">Name</th>
+                    <th id="color">Color</th>
+                    <th id="sizeAndVotes" colspan="2">Size & Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th id="first" headers="rank">Favorite:</th>
+                    <td headers="name first">Apples</td>
+                    <td headers="color first">Green</td>
+                    <td headers="sizeAndVote first">Medium</td>
+                    <td headers="sizeAndVote first">500</td>
+                </tr>
+                <tr>
+                    <th id="second" headers="rank">2nd Favorite:</th>
+                    <td headers="name second">Oranges</td>
+                    <td headers="color second">Orange</td>
+                    <td headers="sizeAndVote second">Large</td>
+                    <td headers="sizeAndVote second">450</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">&copy; 2011 Adam Freeman Fruit Data Enterprises</th>
+                </tr>                
+            </tfoot>
+        </table>
+    </body>
+</html>

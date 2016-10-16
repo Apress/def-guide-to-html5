@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style title="core styles">
+            p {
+                border: medium double black;
+                background-color: lightgray;
+            }
+            #block1 { color: white; border: thick solid black; background-color: gray;}
+            table {border: thin solid black; border-collapse: collapse;
+                    margin: 5px; float: left;}
+            td {padding: 2px;}
+        </style>
+    </head>
+    <body>
+        <p id="block1">There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <p id="block2">
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples.
+        </p>
+        <div><button id="pressme">Press Me </button></div>        
+        <div id="placeholder"></div>
+        <script>
+            var placeholder = document.getElementById("placeholder");
+            processStyleSheet();
+            
+            document.getElementById("pressme").onclick = function() {
+                
+                document.styleSheets[0].cssRules.item(1).selectorText = "#block2";
+                
+                if (placeholder.hasChildNodes()) {
+                    var childCount = placeholder.childNodes.length;
+                    for (var i = 0; i < childCount; i++) {
+                        placeholder.removeChild(placeholder.firstChild);
+                    }
+                }
+                processStyleSheet();
+            }
+            
+            function processStyleSheet() {
+                var rulesList = document.styleSheets[0].cssRules;
+
+                for (var i = 0; i < rulesList.length; i++) {
+                    var rule = rulesList.item(i);
+                
+                    var newElem = document.createElement("table");
+                    newElem.setAttribute("border", "1");                    
+    
+                    addRow(newElem, "parentStyleSheet", rule.parentStyleSheet.title);
+                    addRow(newElem, "selectorText", rule.selectorText);
+                    addRow(newElem, "cssText", rule.cssText);
+                    placeholder.appendChild(newElem);
+                }
+            }
+
+            function addRow(elem, header, value) {
+                elem.innerHTML += "<tr><td>" + header + ":</td><td>"
+                    +  value + "</td></tr>";
+            }
+        </script>
+    </body>
+</html>

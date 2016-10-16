@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style title="core styles">
+            p {
+                color: white;
+                background-color: gray !important;
+                padding: 7px !important;
+            }
+            table {border: thin solid black; border-collapse: collapse;
+                    margin: 5px; float: left;}
+            td {padding: 2px;}
+        </style>
+    </head>
+    <body>
+        <p id="block1">There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <div id="placeholder"></div>
+        <script>
+            var placeholder = document.getElementById("placeholder");
+            displayStyles();
+            
+            function displayStyles() {
+                var newElem = document.createElement("table");
+                newElem.setAttribute("border", "1");                                    
+                
+                var style = document.styleSheets[0].cssRules[0].style;
+    
+                for (var i = 0; i < style.length; i++) {
+                    var val = style.getPropertyCSSValue(style[i]);
+                
+                    if (val.primitiveType == CSSPrimitiveValue.CSS_PX) {
+                        addRow(newElem, style[i],
+                               val.getFloatValue(CSSPrimitiveValue.CSS_PX), "pixels");
+                        addRow(newElem, style[i],
+                               val.getFloatValue(CSSPrimitiveValue.CSS_PT), "points");
+                        addRow(newElem, style[i],
+                               val.getFloatValue(CSSPrimitiveValue.CSS_IN), "inches");                    
+                    } else if (val.primitiveType == CSSPrimitiveValue.CSS_RGBCOLOR) {
+                        var color = val.getRGBColorValue();
+                        addRow(newElem, style[i], color.red.cssText + " "
+                               + color.green.cssText + " "
+                               + color.blue.cssText, "(color)");
+                    } else {
+                        addRow(newElem, style[i], val.cssText, "(other)");
+                    }
+                }                
+                placeholder.appendChild(newElem);                
+            }
+
+            function addRow(elem, header, value, units) {
+                elem.innerHTML += "<tr><td>" + header + ":</td><td>"
+                    +  value + "</td><td>" + units + "</td></tr>";
+            }
+        </script>
+    </body>
+</html>

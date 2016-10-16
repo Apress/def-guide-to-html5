@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <meta name="author" content="Adam Freeman"/>
+        <meta name="description" content="A simple example"/>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            table {
+                border-collapse: collapse;
+                caption-side: bottom;
+                table-layout: fixed;
+                width: 100%;
+            }
+            th, td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <caption>Results of the 2011 Fruit Survey</caption>
+            <colgroup id="colgroup1">
+                <col id="col1And2" span="2"/>
+                <col id="col3"/>
+            </colgroup>
+            <colgroup id="colgroup2" span="2"/>
+            <thead>
+                <tr>
+                    <th>Rank</th><th>Name</th><th>Color</th>
+                    <th colspan="2">Size & Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Really Really Really Long Title:</th>
+                    <td>Apples</td><td>Green</td>
+                    <td>Medium</td><td>500</td>
+                </tr>
+                <tr>
+                    <th>2nd Favorite:</th><td>Oranges</td><td>Orange</td>
+                    <td></td><td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">&copy; 2011 Adam Freeman Fruit Data Enterprises</th>
+                </tr>                
+            </tfoot>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        The browser is: <span id="status">unknown</span>.
+        <script>
+            var statusValue;
+            
+            if (window.navigator.onLine) {
+                statusValue = "online";
+            } else {
+                statusValue = "offline";
+            }
+            document.getElementById("status").innerHTML = statusValue;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            body > * {float: left;}
+            table {border-collapse: collapse; margin-left: 50px}
+            th, td {padding: 4px;}
+            th {text-align: right;}
+            input {border: thin solid black; padding: 2px;}
+            label {min-width: 50px; display: inline-block; text-align: right;}
+            #countmsg, #buttons {margin-left: 50px; margin-top: 5px; margin-bottom: 5px;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <div><label>Key:</label><input id="key" placeholder="Enter Key"/></div>            
+            <div><label>Value:</label><input id="value" placeholder="Enter Value"/></div>
+            <div id="buttons">
+                <button id="add">Add</button>
+                <button id="clear">Clear</button>
+            </div>
+            <p id="countmsg">There are <span id="count"></span> items</p>
+        </div>
+        
+        <table id="data" border="1">
+            <tr><th>Item Count:</th><td id="count">-</td></tr>
+        </table>
+
+        <script>        
+            displayData();
+                        
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonPress;
+            }
+
+            function handleButtonPress(e) {
+                switch (e.target.id) {
+                    case 'add':
+                        var key = document.getElementById("key").value;
+                        var value = document.getElementById("value").value;
+                        localStorage.setItem(key, value);
+                        break;
+                    case 'clear':
+                        localStorage.clear();
+                        break;
+                }
+                displayData();
+            }
+         
+            function displayData() {
+                var tableElem = document.getElementById("data");
+                tableElem.innerHTML = "";
+                var itemCount = localStorage.length;
+                document.getElementById("count").innerHTML = itemCount;
+                for (var i = 0; i < itemCount; i++) {
+                    var key = localStorage.key(i);
+                    var val = localStorage[key];
+                    tableElem.innerHTML += "<tr><th>" + key + ":</th><td>"
+                        + val + "</td></tr>";    
+                }
+            }
+        </script>
+    </body>
+</html>

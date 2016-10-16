@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style>
+            canvas {border: thin solid black; margin: 4px;}
+            body > * {float:left;}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="120">
+            Your browser doesn't support the <code>canvas</code> element
+        </canvas>
+        <label>Composition Value:</label><select id="list">
+            <option>copy</option>
+            <option>destination-atop</option><option>destination-in</option>
+            <option>destination-over</option><option>distination-out</option>
+            <option>lighter</option><option>source-atop</option>
+            <option>source-in</option><option>source-out</option>
+            <option>source-over</option><option>xor</option>
+        </select>
+        <script>
+            var ctx = document.getElementById("canvas").getContext("2d");
+            
+            ctx.fillStyle = "lightgrey";
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 3;
+
+            var compVal = "copy";
+            
+            document.getElementById("list").onchange = function(e) {
+                compVal = e.target.value;
+                draw();
+            }
+
+            draw();
+            
+            function draw() {
+                ctx.clearRect(0, 0, 300, 120);
+                ctx.globalAlpha = 1.0;
+                ctx.font = "100px sans-serif";
+                ctx.fillText("Hello", 10, 100);
+                ctx.strokeText("Hello", 10, 100);       
+                
+                ctx.globalCompositeOperation = compVal;
+                
+                ctx.fillStyle = "red";
+                ctx.globalAlpha = 0.5;
+                ctx.fillRect(100, 10, 150, 100);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Example</title>
+        <style type="text/css">
+            p {
+                background: gray;
+                color:white;
+                padding: 10px;
+                margin: 5px;
+                border: thin solid black
+            }
+        </style>
+    </head>
+    <body>        
+        <p>
+            There are lots of different kinds of fruit - there are over
+            500 varieties of banana alone. By the time we add the countless types of
+            apples, oranges, and other well-known fruit, we are faced with thousands of
+            choices.
+        </p>
+        <p id="block2">
+            One of the most interesting aspects of fruit is the variety available in
+            each country. I live near London, in an area which is known for
+            its apples. 
+        </p>
+        <button id="pressme">Press Me</button>
+        <script type="text/javascript">
+        
+            var pElems = document.getElementsByTagName("p");
+            for (var i = 0; i < pElems.length; i++) {
+                pElems[i].addEventListener("mouseover", handleMouseOver);
+                pElems[i].addEventListener("mouseout", handleMouseOut);
+            }
+            
+            document.getElementById("pressme").onclick = function() {
+                document.getElementById("block2").removeEventListener("mouseout",
+                    handleMouseOut);
+            }
+        
+            function handleMouseOver(e) {
+                e.target.style.background='white'; 
+                e.target.style.color='black';
+            }
+            
+            function handleMouseOut(e) {
+                e.target.style.removeProperty('color');
+                e.target.style.removeProperty('background');
+            }
+        </script>        
+    </body>
+</html>
